@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SesiController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,8 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// login
 Route::get('/', [SesiController::class, 'index']);
 Route::post('/', [SesiController::class, 'login']);
+
+// register
+Route::get('/register', [RegisterController::class, 'showRegisterForm']);
+Route::post('/register', [RegisterController::class, 'register']);
 
 Route::get('/app/admin', function () {
     return view('admin_role'); 
