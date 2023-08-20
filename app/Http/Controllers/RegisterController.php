@@ -11,7 +11,6 @@ class RegisterController extends Controller
         return view('register');
     }
 
-
     public function register(Request $request){
         $this->validate($request, [
             'name' => 'required|string|max:255',
@@ -26,7 +25,7 @@ class RegisterController extends Controller
             'roles' => 'User', 
         ]);
     
-        $user->save();
+        $user->save(); 
 
         return redirect('/')->with('success', 'Registration successful');
     }
